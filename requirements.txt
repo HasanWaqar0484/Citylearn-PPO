@@ -1,0 +1,26 @@
+# PPO for Smart Grid Energy Management - Requirements
+
+# Core dependencies
+torch>=2.0.0
+numpy>=1.24.0
+gymnasium>=0.28.0
+
+# CityLearn
+citylearn>=2.5.0
+
+# Logging and visualization
+tensorboard>=2.13.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Configuration
+pyyaml>=6.0
+
+# Utilities
+tqdm>=4.65.0
+pandas>=2.0.0
+
+# Development (optional)
+pytest>=7.3.0
+black>=23.3.0
+flake8>=6.0.0

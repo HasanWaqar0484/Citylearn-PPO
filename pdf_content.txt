@@ -1,0 +1,156 @@
+ 
+FAST School of Computing 
+Department of Artificial Intelligence and Data Science 
+Course: RL 
+Semester: Fall 2025 
+Task # I 
+Course Instructors: Dr. Ahmad Din 
+Course TAs:  
+Max Marks= 15 
+Due Date: As mentioned on Google Classroom 
+Instructions:  
+ Plagiarism is strictly prohibited and may lead to academic penalties. 
+ Only the coordinator is required to submit the assignment. 
+ 
+Group Coordinator:     Syed Bilal Hassan__________  Reg. #_22i-0505______________ Section:_A__ 
+Group Member 1:        Hassan Waqar____________  Reg. #_22i-0484______________ Section:_B__ 
+Group Member 2:        Abdul Haadi______________  Reg. #_22i-0592______________ Section:_A__ 
+Group Member 3:        ________________________  Reg. #_______________________ Section:____ 
+1. RL Topic Name:  Proximal Policy Optimization with Offline Pre-training for Multi-Objective 
+Smart Grid Energy Management 
+2. Short Title: PPO for Smart Grid Optimization 
+3. Brief Overview of the RL Algorithm: 
+Proximal Policy Optimization (PPO) is a widely used reinforcement learning (RL) method created 
+by OpenAI in 2017. In RL, an agent learns by interacting with an environment, taking actions,  and 
+receiving rewards. The goal is to learn a policy, a way of choosing actions, that gives high long -
+term reward. PPO became popular because it is both simple and stable, which are two things RL 
+algorithms often struggle to balance. 
+Before PPO, many policy  gradient methods had a major problem: they updated the policy too 
+much at once , causing big jumps in behavior. These jumps often made learning unstable and 
+sometimes caused the agent to forget what it had already learned. TRPO, an older algorithm, 
+solved this by carefully limiting how far the policy could move, but it required heavy math and 
+complicated optimization steps. 
+PPO provides the same stability but in a much simpler way. Its main idea is the clipped objective. 
+PPO compares the new policy to the old one. If the new policy changes an action’s probability too 
+ 
+much, PPO “clips” the change; basically saying, “you’re allowed to update, but not too far.” This 
+keeps learning safe and avoids destructive updates. 
+Training with PPO follows a clear process. The agent first collects data by running the current policy 
+in the environment. Then, instead of throwing this data away after one use, PPO reuses it many 
+times to update the policy. This makes training more sample -efficient. During these updates, the 
+clipping rule ensures that the policy only changes gradually. 
+PPO also includes two helpful additions: 
+• A value function, which estimates how good a state is. This reduces the randomness of the 
+learning signal. 
+• An entropy bonus, which encourages exploration so the agent does not get stuck repeating the 
+same actions. 
+One of PPO’s biggest strengths is how well it works without much tuning . The default 
+hyperparameters, especially t he clipping range (usually 0.2), work for many environments. 
+Because PPO is simple to write and runs efficiently on parallel hardware, it has become the go -to 
+method for many RL tasks, from robotics control to playing Atari games. 
+In practice, PPO consistently achieves strong results across a wide variety of benchmarks. It 
+handles both low -dimensional and very high -dimensional action spaces, making it suitable for 
+tasks like humanoid locomotion. Even though newer algorithms exist, PPO remains a common 
+baseline because of its reliability and ease of use. 
+Overall, PPO is valued in reinforceme nt learning because it strikes the right balance: easy to 
+implement, safe to train, and effective across many tasks. 
+ 
+ 
+4. Brief Overview of the RL Algorithm + Application: 
+Application Domain: Smart Grid Energy Management 
+Modern power grids face many problems. Renewable energy creates uncertainty. Solar and wind 
+power change quickly. Electric vehicles also add new load to the grid. Buildings use energy in 
+different ways. The grid must stay stable. It must keep voltage and frequency in safe  ranges. It 
+must reduce cost. It must lower carbon emissions. Old control methods struggle with these goals. 
+Reinforcement learning can help. 
+Proposed Solution: PPO for Building Energy Control 
+ 
+This work uses PPO for building energy management. Each building has solar panels. It also has a 
+battery system. It has flexible loads like heating and cooling. It may also have electric vehicle 
+charging. The CityLearn platform is used for testing. CityLea rn gives realistic energy use data. It 
+includes weather, prices, and schedules. Previous research shows that PPO works well in this area. 
+It can cut energy cost by more than half in some cases. 
+Key Adaptations 
+1. Multi-Objective Reward Design  
+The system follows many goals. It tries to lower electricity cost. It tries to reduce carbon 
+use. It tries to lower peak power use. It tries to protect battery health. Each goal gets a 
+weight. The agent learns a balance. This helps the agent avoid focusing on only one goal. 
+2. Offline Pre-Training 
+Energy systems are sensitive. Unsafe actions can harm equipment. Pure online learning is 
+risky. The agent first learns from old data. Methods like CQL or IQL help with this. These 
+methods avoid bad actions. PPO then fine-tunes the agent online. This makes learning 
+safer. It also makes learning faster. 
+3. Safety-Constrained Learning  
+The agent must follow strict limits. The battery must stay inside safe charge levels. The 
+building must stay comfortable. Power use must stay below limits. The system uses 
+penalties or action filters. These tools remove unsafe actions. PPO then learns safe 
+behavior over time. 
+4. Uncertainty Handling 
+Solar and load forecasts are not perfect. The agent must handle risk. The system uses 
+ensemble value functions or distributional critics. These tools show possible future 
+outcomes. The agent learns safe choices under uncertainty. It acts carefully when 
+forecasts are unclear. It acts more boldly when forecasts are stable. 
+5. Transfer Learning 
+Buildings are different. A model trained on one building should help with another 
+building. The agent learns general features. It also learns building-specific parts. This 
+reduces training time for new buildings. 
+Expected Impact 
+The system aims to cut cost by up to 25%. It aims to reduce emissions by  up to 35%. It aims to 
+lower peak demand by up to 40%. It aims to protect the battery over long periods. It also aims to 
+stay stable across seasons and building types. This work fills key gaps in current research. It also 
+gives guidance on when PPO is useful in real energy systems. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5. Overview of Paper # 1 which has the RL topic + Application 
+a. Title of the paper 1[1]: Proximal Policy Optimization Algorithms 
+Reference: https://arxiv.org/pdf/1707.06347 
+ 
+b. Review of the paper 
+Summary of PPO 
+The PPO paper came out in 2017. It was written by Schulman and his team. The paper introduces 
+a new reinforcement learning method called Proximal Policy Optimization. PPO became pop ular 
+very fast. Many old methods had problems. Q -learning did not work well in continuous control. 
+Vanilla policy gradients needed too much data. TRPO was stable but was hard to use. PPO fixes 
+these problems with a simple idea. PPO uses a clipped objective. The clipping keeps policy updates 
+small and safe. This gives stable learning without complex math. 
+Method and Results 
+The authors test PPO in two areas. The first area is continuous control. They use MuJoCo tasks. 
+The second area is discrete control. They use Atari games. They try many versions of PPO. The best 
+version is the clipped version with epsilon set to 0.2. This version gives strong and stable results. 
+A version without clipping performs very badly. It makes updates that are too large. This shows  
+that clipping is necessary. 
+PPO also beats many other algorithms. It beats A2C, TRPO, CEM, and vanilla policy gradients on 
+most MuJoCo tasks. It also wins on many Atari games. It works well on hard 3D humanoid tasks. 
+These tasks use many parallel workers. PPO handles this easily. 
+Key Ideas 
+The paper gives clear pictures and examples. One picture shows how clipping blocks very large 
+updates. Another picture shows that the PPO loss gives a lower bound on the true goal. The paper 
+also explains advantage estim ation. It uses GAE with lambda 0.95. This reduces noise in the 
+ 
+learning process. The paper shows that PPO is not sensitive to most hyperparameters. It still works 
+well with many settings. 
+Main Impact 
+PPO gets good results. It also stays simple. Only a few lines of code are needed to change a normal 
+policy gradient method into PPO. This helped many researchers. PPO became the default method 
+in OpenAI’s teaching tools. It became the base for many later projects. It works in many areas 
+because it is easy, stable, and flexible. 
+Weak Points 
+The paper has some limits. It does not give strong theory for the clipped rule. It does not study 
+many hyperparameter interactions. It does not compare with A3C. It also does not give full timing 
+results. The KL penalty version is not explored deeply. The tests use clean simulations. Real systems 
+have more noise and limits. 
+Relevance to Energy Systems 
+Energy systems have safety rules and uncertainty. PPO can help because it makes safe updates. 
+But the paper does not study real energy limits. Methods like offline learning and safety filters can 
+help close this gap. 
+ 
+6. References 
+[1] [1] Schulman, J., Wolski, F., Dhariwal , P., Radford, A., & Klimov, O. (2017). Proximal Policy 
+Optimization Algorithms. arXiv preprint arXiv:1707.06347. https://arxiv.org/abs/1707.06347 
+ 
+*** 
